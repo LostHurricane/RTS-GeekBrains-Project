@@ -1,15 +1,22 @@
 ﻿using System.Linq;
 using Abstractions;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 using UserControlSystem;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private SelectableValue _selectedObject;
+    [SerializeField] private EventSystem _event;
 
     private void Update()
     {
+        if (_event.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (!Input.GetMouseButtonUp(0))
         {
             return;
