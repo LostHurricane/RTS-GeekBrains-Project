@@ -17,3 +17,8 @@ public class ProduceUnitCommand : IProduceUnitCommand
     {
     }
 }
+
+public class ProduceUnitCommandHeir : ProduceUnitCommand
+{
+
+}

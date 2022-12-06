@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 public static class AssetsInjector
@@ -8,9 +9,15 @@ public static class AssetsInjector
     public static T Inject<T>(this AssetsContext context, T target)
     {
         var targetType = target.GetType();
-        var allFields = targetType.GetFields(BindingFlags.NonPublic | BindingFlags.Public
-            | BindingFlags.Instance);
-        for (int i = 0; i < allFields.Length; i++)
+        List<FieldInfo> allFields = new List<FieldInfo>();
+
+        while (targetType != null)
+        {
+            allFields.AddRange(GetFieldsFromType(targetType));
+            targetType = targetType.BaseType;
+        }
+
+        for (int i = 0; i < allFields.Count; i++)
         {
             var fieldInfo = allFields[i];
             var injectAssetAttribute =
@@ -24,6 +31,12 @@ public static class AssetsInjector
         }
 
         return target;
+    }
+
+    private static FieldInfo[] GetFieldsFromType(Type targetType)
+    {
+        return targetType.GetFields(BindingFlags.NonPublic | BindingFlags.Public
+            | BindingFlags.Instance);
     }
 }
 
