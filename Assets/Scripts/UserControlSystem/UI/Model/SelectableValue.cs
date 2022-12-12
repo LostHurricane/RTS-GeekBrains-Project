@@ -8,12 +8,12 @@ namespace UserControlSystem
     public class SelectableValue : ScriptableObject
     {
         public ISelectable CurrentValue { get; private set; }
-        public Action<ISelectable> OnSelected;
+        public Action<ISelectable> OnNewValue;
 
         public void SetValue(ISelectable value)
         {
             CurrentValue = value;
-            OnSelected?.Invoke(value);
+            OnNewValue?.Invoke(value);
         }
     }
 }
