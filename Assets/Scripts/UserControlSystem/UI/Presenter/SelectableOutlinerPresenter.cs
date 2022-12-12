@@ -9,7 +9,7 @@ public sealed class SelectableOutlinerPresenter : MonoBehaviour
 
     private void Start()
     {
-        _selectedObject.OnSelected += ChangeSelection;
+        _selectedObject.OnNewValue += ChangeSelection;
     }
 
     private void ChangeSelection(ISelectable selected)
@@ -47,6 +47,6 @@ public sealed class SelectableOutlinerPresenter : MonoBehaviour
 
     private void OnDestroy()
     {
-        _selectedObject.OnSelected -= ChangeSelection;
+        _selectedObject.OnNewValue -= ChangeSelection;
     }
 }

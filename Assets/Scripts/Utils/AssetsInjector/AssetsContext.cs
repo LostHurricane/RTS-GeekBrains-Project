@@ -16,7 +16,6 @@ public class AssetsContext : ScriptableObject
             {
                 if (targetName == null || obj.name == targetName)
                 {
-                    Debug.Log("Found prefab");
                     return obj;
                 }
             }

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class MoveCommand : IMoveCommand
 {
-    public Vector3 Point => _point;
-    private Vector3 _point;
+    public Vector3 Target { get; }
 
-    public MoveCommand(Vector3 point)
+    public MoveCommand(Vector3 target)
     {
-        _point = point;
+        Target = target;
     }
+
 }
