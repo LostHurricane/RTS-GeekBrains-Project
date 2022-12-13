@@ -1,3 +1,4 @@
+using Abstractions;
 using Commands;
 using UnityEngine;
 using UserControlSystem;
@@ -16,8 +17,13 @@ public class UiModelInstaller : MonoInstaller
     {
         Container.Bind<AssetsContext>().FromInstance(_legacyContext);
         Container.Bind<Vector3Value>().FromInstance(_vector3Value);
+
         Container.Bind<SelectableValue>().FromInstance(_selectable);
         Container.Bind<AttackableValue>().FromInstance(_attackableValue);
+
+        Container.Bind<IAwaitable<IAttackable>>().FromInstance(_attackableValue);
+        Container.Bind<IAwaitable<Vector3>>().FromInstance(_vector3Value);
+
 
         Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
