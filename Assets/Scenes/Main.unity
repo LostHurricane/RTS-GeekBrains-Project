@@ -172,6 +172,7 @@ MonoBehaviour:
   _selectedObject: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
   _event: {fileID: 467524304}
   _groundClicksRMB: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
+  _attackablesRMB: {fileID: 11400000, guid: 108e23bbd97ef694b8f404f962bfea16, type: 2}
   _groundTransform: {fileID: 2003567869}
 --- !u!114 &47868612
 MonoBehaviour:
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _icon: {fileID: 21300000, guid: 712262adeebd1924cad36360993fca8a, type: 3}
+  _pivotPoint: {fileID: 306736263}
 --- !u!114 &306736269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,6 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973374993}
   - component: {fileID: 1973374994}
+  - component: {fileID: 1973374995}
   m_Layer: 0
   m_Name: Injector
   m_TagString: Untagged
@@ -1594,7 +1597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1973374995}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1612,6 +1616,22 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
+--- !u!114 &1973374995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973374991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26619de8c270b6247a6c2e000dcaa541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _legacyContext: {fileID: 11400000, guid: 392b34a50ec496645b6b76b159ab9e4e, type: 2}
+  _vector3Value: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
+  _selectable: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
+  _attackableValue: {fileID: 11400000, guid: 108e23bbd97ef694b8f404f962bfea16, type: 2}
 --- !u!1 &2003567868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2336605773635592301, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
+      propertyPath: _pivotPoint
+      value: 
+      objectReference: {fileID: 2066497595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
 --- !u!4 &2066497595 stripped

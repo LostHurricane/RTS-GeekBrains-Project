@@ -3,11 +3,10 @@ using Commands;
 
 public class AttackCommand : IAttackCommand
 {
-    public ISelectable Target => _target;
-    private ISelectable _target;
+    public IAttackable Target { get; }
 
-    public AttackCommand(ISelectable target)
+    public AttackCommand(IAttackable target)
     {
-        _target = target;
+        Target = target;
     }
 }
