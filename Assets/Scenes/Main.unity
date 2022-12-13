@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitsParent: {fileID: 1748817644}
+  _productionTime: 3
 --- !u!1 &338527692
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +790,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: VegetationSmall01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1109,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CliffEdge01
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 04fa4995cb1cfcd4eb8dc1defa230c89, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 04fa4995cb1cfcd4eb8dc1defa230c89, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1179,9 +1200,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1834126935}
     m_Modifications:
+    - target: {fileID: 81089786966750784, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 81089786966750786, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
       propertyPath: m_Name
       value: MainBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 81089786966750786, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 81089786966750788, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 81089786966750790, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 81089786967173730, guid: 1ca3cfb26290fbe4e8316579f01640c5, type: 3}
       propertyPath: m_RootOrder
@@ -1676,10 +1713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1748817644}
     m_Modifications:
-    - target: {fileID: 2066497603, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
-      propertyPath: _agent
-      value: 
-      objectReference: {fileID: 2066497596}
     - target: {fileID: 2035108231761634550, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1733,11 +1766,6 @@ PrefabInstance:
 --- !u!4 &2066497595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2035108231761634550, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
-  m_PrefabInstance: {fileID: 2066497594}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &2066497596 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 2066497596, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
   m_PrefabInstance: {fileID: 2066497594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5122495236470536561
