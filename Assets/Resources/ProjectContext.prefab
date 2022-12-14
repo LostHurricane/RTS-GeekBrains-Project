@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 292080646300956428}
+  _monoInstallers: []
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -69,10 +68,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3887753619335270928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26619de8c270b6247a6c2e000dcaa541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _legacyContext: {fileID: 11400000, guid: 392b34a50ec496645b6b76b159ab9e4e, type: 2}
   _vector3Value: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
+  _attackableValue: {fileID: 11400000, guid: 108e23bbd97ef694b8f404f962bfea16, type: 2}

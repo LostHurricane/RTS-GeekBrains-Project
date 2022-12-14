@@ -1,12 +1,14 @@
 using System;
+using UnityEngine;
+using UserControlSystem;
+using Zenject;
 
 namespace Commands
 {
-    public class PatrolCommandCommandCreator : CommandCreatorBase<IPatrolCommand>
+    public class PatrolCommandCommandCreator : CancellableCommandCreatorBase<IPatrolCommand, Vector3>
     {
-        protected override void ClassSpecificCommandCreation(Action<IPatrolCommand> creationCallback)
-        {
-            creationCallback?.Invoke(new PatrolCommand());
-        }
+        [Inject] private SelectableValue _selectable;
+        protected override IPatrolCommand CreateCommand(Vector3 argument) => new
+        PatrolCommand(_selectable.CurrentValue.PivotPoint.position, argument);
     }
 }

@@ -1,10 +1,9 @@
 using Commands;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveComandExecutor : CommandExecutorBase<IMoveCommand>
+
+public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
 {
     [SerializeField] private UnitMovementStop _stop;
     [SerializeField] private Animator _animator;
@@ -16,3 +15,4 @@ public class MoveComandExecutor : CommandExecutorBase<IMoveCommand>
         _animator.SetTrigger("Idle");
     }
 }
+

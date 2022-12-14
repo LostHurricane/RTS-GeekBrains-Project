@@ -1,12 +1,19 @@
+using Abstractions;
 using System;
+using System.Threading;
+using UserControlSystem;
+using Zenject;
 
 namespace Commands
 {
-    public class AttackCommandCommandCreator : CommandCreatorBase<IAttackCommand>
+    public class AttackCommandCommandCreator : CancellableCommandCreatorBase<IAttackCommand, IAttackable>
     {
-        protected override void ClassSpecificCommandCreation(Action<IAttackCommand> creationCallback)
-        {
-            creationCallback?.Invoke(new AttackCommand(null));
-        }
+        [Inject] private AssetsContext _context;
+        [Inject] private AttackableValue _attackableValue;
+        private CancellationTokenSource _ctSource;
+
+        protected override IAttackCommand CreateCommand(IAttackable argument) => new AttackCommand(argument);
+
+
     }
 }

@@ -1,3 +1,4 @@
+using Abstractions;
 using Commands;
 using UnityEngine;
 using UserControlSystem;
@@ -7,11 +8,22 @@ public class UiModelInstaller : MonoInstaller
 {
     [SerializeField] private AssetsContext _legacyContext;
     [SerializeField] private Vector3Value _vector3Value;
+    [SerializeField] private SelectableValue _selectable;
+
+
+    [SerializeField] private AttackableValue _attackableValue;
 
     public override void InstallBindings()
     {
         Container.Bind<AssetsContext>().FromInstance(_legacyContext);
         Container.Bind<Vector3Value>().FromInstance(_vector3Value);
+
+        Container.Bind<SelectableValue>().FromInstance(_selectable);
+        Container.Bind<AttackableValue>().FromInstance(_attackableValue);
+
+        Container.Bind<IAwaitable<IAttackable>>().FromInstance(_attackableValue);
+        Container.Bind<IAwaitable<Vector3>>().FromInstance(_vector3Value);
+
 
         Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
@@ -24,7 +36,7 @@ public class UiModelInstaller : MonoInstaller
         Container.Bind<CommandCreatorBase<IStopCommand>>()
         .To<StopCommandCommandCreator>().AsTransient();
 
-        Container.Bind<CommandButtonsModel>().AsTransient();
+        Container.Bind<CommandButtonsModel>().AsSingle();
 
     }
 }
