@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectedObject: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
-  _groundClicksRMB: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
 --- !u!1 &168921228
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +708,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 444c567cdf5dbb548861108ecae53204, type: 3}
   m_PrefabInstance: {fileID: 904681549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &935778049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2035108231762131158, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
+  m_PrefabInstance: {fileID: 2066497594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -1776,6 +1780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8268698122866048120, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
+      propertyPath: _stopCommandExecutor
+      value: 
+      objectReference: {fileID: 2066497604}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
 --- !u!4 &2066497595 stripped
@@ -1783,6 +1791,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2035108231761634550, guid: 05e83c1cfef39a9448979ab4c79573e9, type: 3}
   m_PrefabInstance: {fileID: 2066497594}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066497604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935778049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721664838d9cddf4e8631eab56cad60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5122495236470536561
 PrefabInstance:
   m_ObjectHideFlags: 0

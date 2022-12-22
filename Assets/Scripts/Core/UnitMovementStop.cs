@@ -17,11 +17,9 @@ public class UnitMovementStop : MonoBehaviour, IAwaitable<AsyncExtensions.Void>
         private void onStop()
         {
             _unitMovementStop.OnStop -= onStop;
-            _isCompleted = true;
-            _continuation?.Invoke();
+            OnWaitFinish(new AsyncExtensions.Void());
         }
 
-        public override AsyncExtensions.Void GetResult() => new AsyncExtensions.Void();
     }
 
     public event Action OnStop;
