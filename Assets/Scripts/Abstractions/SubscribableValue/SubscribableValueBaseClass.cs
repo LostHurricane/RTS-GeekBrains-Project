@@ -6,7 +6,6 @@ public abstract class SubscribableValueBaseClass <T> : ScriptableObject,  IAwait
     public class NewValueNotifier<TAwaited> : AwaiterBaseClass<TAwaited>
     {
         private readonly SubscribableValueBaseClass<TAwaited> _scriptableObjectValueBase;
-        private TAwaited _result;
 
         public NewValueNotifier(SubscribableValueBaseClass<TAwaited> scriptableObjectValueBase)
         {
@@ -17,12 +16,10 @@ public abstract class SubscribableValueBaseClass <T> : ScriptableObject,  IAwait
         private void OnNewValue(TAwaited obj)
         {
             _scriptableObjectValueBase.OnNewValue -= OnNewValue;
-            _result = obj;
-            _isCompleted = true;
-            _continuation?.Invoke();
+            OnWaitFinish(obj);
         }
 
-        public override TAwaited GetResult() => _result;
+        //public override TAwaited GetResult() => _result;
     }
 
 
