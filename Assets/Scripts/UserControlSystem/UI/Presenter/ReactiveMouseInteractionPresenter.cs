@@ -22,8 +22,8 @@ public sealed class ReactiveMouseInteractionPresenter : MonoBehaviour
     {
         _groundPlane = new Plane(_groundTransform.up, 0);
 
-        var leftClickObserver = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0));
-        var rightClickObserver = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1));
+        var leftClickObserver = Observable.EveryUpdate().Where(_ => Input.GetMouseButtonUp(0));
+        var rightClickObserver = Observable.EveryUpdate().Where(_ => Input.GetMouseButton(1) && !Input.GetMouseButton(0));
 
         leftClickObserver.Subscribe(_ => LeftMouseClickProccessing());
         rightClickObserver.Subscribe(_ => RightMouseClickProccessing());

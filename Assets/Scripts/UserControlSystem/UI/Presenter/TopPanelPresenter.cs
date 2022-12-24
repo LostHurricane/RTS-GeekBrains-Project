@@ -25,6 +25,7 @@ public class TopPanelPresenter : MonoBehaviour
         });
 
         _menuButton.OnClickAsObservable().Subscribe(_ =>_menuGo.SetActive(true));
+
     }
 
 }
