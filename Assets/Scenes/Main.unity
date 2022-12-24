@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 47868611}
   - component: {fileID: 47868612}
   - component: {fileID: 47868613}
+  - component: {fileID: 47868614}
   m_Layer: 0
   m_Name: MouseInteractionPresenter
   m_TagString: Untagged
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47868609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7751111c10f04340acd5d99bc2a8555e, type: 3}
   m_Name: 
@@ -201,6 +202,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectedObject: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
+--- !u!114 &47868614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47868609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84055d01a535974eb54c4b9b46e80d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+  _selectedObject: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
+  _event: {fileID: 467524304}
+  _groundClicksRMB: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
+  _attackablesRMB: {fileID: 11400000, guid: 108e23bbd97ef694b8f404f962bfea16, type: 2}
+  _groundTransform: {fileID: 2003567869}
 --- !u!1 &168921228
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,17 +957,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 716aa1302ba12d04289cac00ae054a73, type: 3}
   m_PrefabInstance: {fileID: 1190042803}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1206788637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 779872856835853100, guid: 5dd235a43d36f9347a1a35df441f10d9, type: 3}
-  m_PrefabInstance: {fileID: 5122495236470536561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1468160577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,17 +1756,6 @@ MonoBehaviour:
   _vector3Value: {fileID: 11400000, guid: 848a3b26cc103dd49a5129a022bd1cae, type: 2}
   _selectable: {fileID: 11400000, guid: 764fa3c7c8adba745a0f90b269e57922, type: 2}
   _attackableValue: {fileID: 11400000, guid: 108e23bbd97ef694b8f404f962bfea16, type: 2}
---- !u!114 &1986013491 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 193263399746476425, guid: 5dd235a43d36f9347a1a35df441f10d9, type: 3}
-  m_PrefabInstance: {fileID: 5122495236470536561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2003567868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,25 +1871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721664838d9cddf4e8631eab56cad60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2142056007 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6309082605979612908, guid: 5dd235a43d36f9347a1a35df441f10d9, type: 3}
-  m_PrefabInstance: {fileID: 5122495236470536561}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2142056009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2142056007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6eae6890fce95d47a9043379b93b586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backButton: {fileID: 1206788637}
-  _exitButton: {fileID: 1986013491}
 --- !u!1001 &5122495236470536561
 PrefabInstance:
   m_ObjectHideFlags: 0
