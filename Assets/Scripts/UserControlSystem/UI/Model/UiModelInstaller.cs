@@ -1,5 +1,6 @@
 using Abstractions;
 using Commands;
+using System;
 using UnityEngine;
 using UserControlSystem;
 using Zenject;
@@ -24,6 +25,7 @@ public class UiModelInstaller : MonoInstaller
         Container.Bind<IAwaitable<IAttackable>>().FromInstance(_attackableValue);
         Container.Bind<IAwaitable<Vector3>>().FromInstance(_vector3Value);
 
+        Container.Bind<IObservable<ISelectable>>().FromInstance(_selectable);
 
         Container.Bind<CommandCreatorBase<IProduceUnitCommand>>()
         .To<ProduceUnitCommandCommandCreator>().AsTransient();
