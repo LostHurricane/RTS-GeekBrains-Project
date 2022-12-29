@@ -14,6 +14,7 @@ public class CommandButtonsView : MonoBehaviour
     [SerializeField] private GameObject _patrolButton;
     [SerializeField] private GameObject _stopButton;
     [SerializeField] private GameObject _produceUnitButton;
+    [SerializeField] private GameObject _setMeetingPointButton;
 
     private Dictionary<Type, GameObject> _buttonsByExecutorType;
 
@@ -30,6 +31,8 @@ public class CommandButtonsView : MonoBehaviour
             .Add(typeof(ICommandExecutor<IStopCommand>), _stopButton);
         _buttonsByExecutorType
             .Add(typeof(ICommandExecutor<IProduceUnitCommand>), _produceUnitButton);
+        _buttonsByExecutorType
+            .Add(typeof(ICommandExecutor<ISetMeetingPointCommand>), _setMeetingPointButton);
     }
 
     public void BlockInteractions(ICommandExecutor ce)
@@ -47,6 +50,7 @@ public class CommandButtonsView : MonoBehaviour
         _patrolButton.GetComponent<Selectable>().interactable = value;
         _stopButton.GetComponent<Selectable>().interactable = value;
         _produceUnitButton.GetComponent<Selectable>().interactable = value;
+        _setMeetingPointButton.GetComponent<Selectable>().interactable = value;
     }
 
 

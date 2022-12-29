@@ -37,6 +37,8 @@ public class UiModelInstaller : MonoInstaller
         .To<PatrolCommandCommandCreator>().AsTransient();
         Container.Bind<CommandCreatorBase<IStopCommand>>()
         .To<StopCommandCommandCreator>().AsTransient();
+        Container.Bind<CommandCreatorBase<ISetMeetingPointCommand>>()
+        .To<SetMeetingPointCommandCommandCreator>().AsTransient();
 
         Container.Bind<CommandButtonsModel>().AsSingle();
         Container.Bind<BottomCenterModel>().AsSingle();

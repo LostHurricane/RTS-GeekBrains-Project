@@ -1,4 +1,5 @@
 using Commands;
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,9 +7,12 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
+public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand>, IUnitProducer, IHaveMeetingPoint
 {
+
     public IReadOnlyReactiveCollection<IUnitProductionTask> Queue => _queue;
+
+    public Vector3 MeetingPoint { get; set; }
 
     [SerializeField] private Transform _unitsParent;
     [SerializeField] private int _maximumUnitsInQueue = 6;
@@ -28,8 +32,9 @@ public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand
         {
             removeTaskAtIndex(0);
 
-            _diContainer.InstantiatePrefab(innerTask.UnitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
-
+            var instance = _diContainer.InstantiatePrefab(innerTask.UnitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
+            var queue = instance.GetComponent<ICommandsQueue>();
+            queue.EnqueueCommand(new MoveCommand(MeetingPoint));
         }
     }
 
@@ -45,7 +50,7 @@ public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand
 
     public override async Task ExecuteSpecificCommand(IProduceUnitCommand command)
     {
-        _queue.Add(new UnitProductionTask(command.Icon, command.ProductionTime, command.UnitName, command.UnitPrefab));
+         _queue.Add(new UnitProductionTask(command.Icon, command.ProductionTime, command.UnitName, command.UnitPrefab));
 
     }
 }

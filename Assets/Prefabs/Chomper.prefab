@@ -148,6 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721664838d9cddf4e8631eab56cad60e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2173861917111414054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035108231762131158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442f22b0eb47fbf4094072dffb2625e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2336605773635592301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +214,7 @@ MonoBehaviour:
   _stop: {fileID: 2066497603}
   _animator: {fileID: 2035108231754730260}
   _stopCommandExecutor: {fileID: 2066497604}
---- !u!114 &2173861917111414054
+--- !u!114 &2066497615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,6 +223,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035108231762131158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442f22b0eb47fbf4094072dffb2625e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 6116800068511619813}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
