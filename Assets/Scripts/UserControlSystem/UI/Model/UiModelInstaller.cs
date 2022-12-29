@@ -39,6 +39,9 @@ public class UiModelInstaller : MonoInstaller
         .To<StopCommandCommandCreator>().AsTransient();
 
         Container.Bind<CommandButtonsModel>().AsSingle();
+        Container.Bind<BottomCenterModel>().AsSingle();
 
+        Container.Bind<float>().WithId("Chomper").FromInstance(5f);
+        Container.Bind<string>().WithId("Chomper").FromInstance("Chomper");
     }
 }

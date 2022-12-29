@@ -2,19 +2,48 @@ using Commands;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 
-public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand>
+public class ProduceUnitComandExecutor : CommandExecutorBase<IProduceUnitCommand>, IUnitProducer
 {
-    [SerializeField] private Transform _unitsParent;
-    [SerializeField] private float _productionTime;
+    public IReadOnlyReactiveCollection<IUnitProductionTask> Queue => _queue;
 
-    public async override void ExecuteSpecificCommand(IProduceUnitCommand command)
+    [SerializeField] private Transform _unitsParent;
+    [SerializeField] private int _maximumUnitsInQueue = 6;
+
+    private ReactiveCollection<IUnitProductionTask> _queue = new ReactiveCollection<IUnitProductionTask>();
+
+    private void Update()
     {
-        await Task.Delay((int)(_productionTime * 1000));
-        Instantiate(command.UnitPrefab,
-            new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)),
-            Quaternion.identity,
-            _unitsParent);
+        if (_queue.Count == 0)
+        {
+            return;
+        }
+        var innerTask = (UnitProductionTask)_queue[0];
+        innerTask.TimeLeft -= Time.deltaTime;
+        if (innerTask.TimeLeft <= 0)
+        {
+            removeTaskAtIndex(0);
+            Instantiate(innerTask.UnitPrefab, new
+            Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)),
+            Quaternion.identity, _unitsParent);
+        }
+    }
+
+    public void Cancel(int index) => removeTaskAtIndex(index);
+    private void removeTaskAtIndex(int index)
+    {
+        for (int i = index; i < _queue.Count - 1; i++)
+            {
+            _queue[i] = _queue[i + 1];
+            }
+        _queue.RemoveAt(_queue.Count - 1);
+    }
+
+    public override void ExecuteSpecificCommand(IProduceUnitCommand command)
+    {
+        _queue.Add(new UnitProductionTask(command.Icon, command.ProductionTime, command.UnitName, command.UnitPrefab));
+
     }
 }
