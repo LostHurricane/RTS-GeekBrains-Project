@@ -29,7 +29,7 @@ public class MouseClickCommandPresenter : MonoBehaviour
         }
         if ((obj as Component).TryGetComponent<CommandExecutorBase<IMoveCommand>>(out var b))
         {
-            _model.OnCommandButtonClicked(b);
+            //_model.OnCommandButtonClicked(b, null);
         }
     }
 

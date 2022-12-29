@@ -1,9 +1,10 @@
 using Commands;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class AttackComandExecutor : CommandExecutorBase<IAttackCommand>
 {
-    public override void ExecuteSpecificCommand(IAttackCommand command)
+    public override async Task ExecuteSpecificCommand(IAttackCommand command)
     {
         Debug.Log($"Attack comand executed");
     }

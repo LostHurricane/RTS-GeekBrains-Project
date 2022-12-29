@@ -1,7 +1,9 @@
-using Commands;
 using UnityEngine;
 
-public class StopCommand : IStopCommand
+namespace Commands
 {
-    
+    public class StopCommand : IStopCommand
+    {
+
+    }
 }
