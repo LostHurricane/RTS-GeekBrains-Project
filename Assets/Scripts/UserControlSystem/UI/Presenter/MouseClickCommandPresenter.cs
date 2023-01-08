@@ -3,18 +3,19 @@ using Commands;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using UserControlSystem;
 using Zenject;
+using ISelectable = Abstractions.ISelectable;
 
 public class MouseClickCommandPresenter : MonoBehaviour
 {
 
     [SerializeField] private SelectableValue _selectedObject;
 
-    [Inject] private CommandButtonsModel _model;
-
+    [Inject] private CommandCreatorBase<IMoveCommand> _mover;
 
     private void Start()
     {
@@ -29,7 +30,8 @@ public class MouseClickCommandPresenter : MonoBehaviour
         }
         if ((obj as Component).TryGetComponent<CommandExecutorBase<IMoveCommand>>(out var b))
         {
-            //_model.OnCommandButtonClicked(b, null);
+            var queue = (obj as Component).GetComponentInParent<ICommandsQueue>();
+            _mover.ProcessCommandExecutor(b, command => ExecuteCommandWrapper(command, queue));
         }
     }
 
@@ -39,4 +41,12 @@ public class MouseClickCommandPresenter : MonoBehaviour
 
     }
 
+    public void ExecuteCommandWrapper(object command, ICommandsQueue commandsQueue)
+    {
+        if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        {
+            commandsQueue.Clear();
+        }
+        commandsQueue.EnqueueCommand(command);
+    }
 }
