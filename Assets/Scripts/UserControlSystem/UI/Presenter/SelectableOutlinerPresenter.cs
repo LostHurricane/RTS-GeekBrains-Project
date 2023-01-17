@@ -43,11 +43,6 @@ public sealed class SelectableOutlinerPresenter : MonoBehaviour
             }
 
         }
-
-        
-
-
-        
         _currentOutline = outline;
     }
 
