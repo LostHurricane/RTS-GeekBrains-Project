@@ -48,5 +48,6 @@ public class MouseClickCommandPresenter : MonoBehaviour
             commandsQueue.Clear();
         }
         commandsQueue.EnqueueCommand(command);
+        //CheckType(_selectedObject.CurrentValue);
     }
 }
